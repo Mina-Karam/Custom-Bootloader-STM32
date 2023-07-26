@@ -55,3 +55,8 @@ dkms.conf
 /BootloaderProject/MDK-ARM/BootloaderProject/*.lnp
 /BootloaderProject/MDK-ARM/BootloaderProject/*.dep
 /BootloaderProject/MDK-ARM/BootloaderProject/*.crf
+/BootloaderProject/MDK-ARM/DebugConfig
+/BootloaderProject/MDK-ARM/BootloaderProject/*.crf
+/BootloaderProject/MDK-ARM/BootloaderProject/*.sct
+/BootloaderProject/MDK-ARM/BootloaderProject/*.crf
+/BootloaderProject/MDK-ARM/BootloaderProject/*.axf
