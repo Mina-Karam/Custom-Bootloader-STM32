@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "bootloader.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +57,8 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 char welcome_mina[] = "I am Mina Karam\r\n";
+char welcome_Leila[] = "Hi Leila\r\n";
+
 /* USER CODE END 0 */
 
 /**
@@ -66,7 +68,7 @@ char welcome_mina[] = "I am Mina Karam\r\n";
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	HAL_StatusTypeDef usart_status = HAL_ERROR;
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -103,7 +105,9 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		HAL_Delay(1000);
-		usart_status = HAL_UART_Transmit(&huart2,(uint8_t*)welcome_mina,sizeof(welcome_mina), HAL_MAX_DELAY);
+		BL_Print_Message(welcome_mina);
+		BL_Print_Message(welcome_Leila);
+
   }
   /* USER CODE END 3 */
 }
