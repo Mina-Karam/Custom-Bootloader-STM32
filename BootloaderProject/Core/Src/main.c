@@ -68,7 +68,7 @@ char welcome_Leila[] = "Hi Leila\r\n";
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	
+  BL_Status Status = BL_OK;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -93,7 +93,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  BL_Print_Message("BootLoader Started !! \r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,11 +103,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		HAL_Delay(1000);
-		BL_Print_Message(welcome_mina);
-		BL_Print_Message(welcome_Leila);
-
+	Status = BL_UART_Fetch_Host_Command();
+	if(Status != BL_OK)
+	{
+		BL_Print_Message("Error fetching from the HOST !! \r\n");
+	}
   }
   /* USER CODE END 3 */
 }
